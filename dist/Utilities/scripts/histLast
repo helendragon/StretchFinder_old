@@ -1,0 +1,512 @@
+"\\_"))[c(1,2)],sep=""))
+}
+names(refseq.upstream.id) <- 1:length(refseq.upstream.id)
+# *****************************************************************
+# CREATE OUTPUT OBJECT
+# *****************************************************************
+output.params <- c("entrez.id","symbol","gene.description","five.UTR.sequence")
+output.list <- list()
+for(i in 1:length(gene.list.refseq)){
+output.list[[i]] <- list()
+for(j in 1:length(output.params)){
+output.list[[i]][[j]] <- list()
+}
+names(output.list[[i]]) <- output.params
+}
+names(output.list) <- gene.list.refseq
+# *****************************************************************
+# LET THE COMPUTER DECIDE
+# *****************************************************************
+cat("Extracting data",date(),"\n")
+for(i in 1:length(gene.list.refseq)){
+cat(rep(".",1))
+# extract the entrez.id of each gene in geneList
+output.list[[i]]$entrez.id <- refseq.id[which(refseq.id$accession==gene.list.refseq[i]),]$gene_id
+# extract the symbol of each gene in geneList
+output.list[[i]]$symbol <- symbol[which(symbol==output.list[[i]]$entrez.id),]$symbol
+# extract the gene description of each gene in geneList
+output.list[[i]]$gene.description <- gene.description[which(gene.description==output.list[[i]]$entrez.id),]$gene_name
+# Return the index of the target genes
+index.target.gene <- sequence <- NA;
+index.target.gene <- as.numeric(names(refseq.upstream.id[which(refseq.upstream.id==gene.list.refseq[i])]))
+# NOTE: some genes have repeated RefSeq.id which corresponds to the same gene in other Chromosomes.
+# by using index.target.gene[1] we are selecting only the first RefSeq entry.
+sequence <- upstream[index.target.gene[1]]
+sequence.length <- nchar(sequence)
+start.position <- ((sequence.length-number.bases.upstream)+1)
+sequence <- substring(toString(sequence),1:sequence.length,1:sequence.length)
+sequence <- sequence[start.position:sequence.length]
+output.list[[i]]$five.UTR.sequence <- sequence
+}
+cat("\n")
+cat("Computations DONE",date(),"\n")
+return(output.list)
+}
+prova <- extract.five.utr.sequence("NM_003588", 250)
+prova
+c2s(prova)
+library('Biostrings')
+c2s(prova)
+ls("package.org.Hs.eg.db")
+ls("org.Hs.eg.db")
+org.HS.egCHRLOC("NM_003588")
+library("org.Hs.eg.bd")
+library("org.Hs.eg.db")
+org.HS.egCHRLOC("NM_003588")
+org.Hs.egCHRLOC("NM_003588")
+biocLite("AnnotationDBi")
+biocLite("AnnotationDbi")
+q()
+install.packages("AnnotationDBi")
+install.packages("AnnotationDbi")
+source("http://bioconductor.org/biocLite.R")
+biocLite("AnnotationDbi")
+data()
+date()
+lenght(date())
+length(date())
+date()[1]
+date()[2]
+# human genome DNA sequences
+library(BSgenome.Hsapiens.UCSC.hg19)
+# human genome wide annotations
+library(org.Hs.eg.db)
+refseq.id <-toTable(org.Hs.egREFSEQ)
+View(refseq.id)
+symbol <- toTable(org.Hs.egSYMBOL)
+View(symbol)
+upstream <- Hsapiens$upstream1000
+fix(upstream)
+seqX <- sample(c("A","C","G","T"),10000,rep=TRUE,prob=c(0.4,0.1,0.1,0.4))
+seqX
+freqX <- table(seqX)/length(seqX)
+barplot(freqX,col=1:4,main="Compositional bias of seqX",xlab="Base",ylab="Base proportion")
+biocLite("biomaRt")
+biocLite("NetAffx")
+biocLite("AffyCompatible")
+library(AffyCompatible)
+install.packages("Z:\users\flombardi\Documents_22may2013\Project1\RESULTS\Microarray\ANALISI\BioStats\GSEA\MDA_1.1.14.tar" , repos = NULL, type="source")
+install.packages("Z/users/flombardi/Documents_22may2013/Project1/RESULTS/Microarray/ANALISI/BioStats/GSEA/MDA_1.1.14.tar" , repos = NULL, type="source")
+library(MDA)
+install.packages("Z/users/flombardi/Documents_22may2013/Project1/RESULTS/Microarray/ANALISI/BioStats/GSEA/MDA_1.1.14.tar.gz" , repos = NULL, type="source")
+install.packages("Z:/users/flombardi/Documents_22may2013/Project1/RESULTS/Microarray/ANALISI/BioStats/GSEA/MDA_1.1.14.tar" , repos = NULL, type="source")
+install.packages("Z:/users/flombardi/Documents_22may2013/Project1/RESULTS/Microarray/ANALISI/BioStats/GSEA/MDA_1.1.14.tar" , repos = MDA, type="source")
+install.packages("Z:/users/flombardi/Documents_22may2013/Project1/RESULTS/Microarray/ANALISI/BioStats/GSEA/MDA_1.1.14.tar" , repos = "MDA", type="source")
+library(MDA)
+plot(1:25, c())
+pt=c(2,2,2,2,2,2,3,4,5,6,5,6,6,5,5,5,4,3,3,3,3,3,2,1,1,1)
+length(pt)
+plot(1:26, pt)
+plot(1:26, pt, type='h', col="blue")
+plot(1:26, pt, type='h', col="blue", xaxt=[0,8])
+plot(1:26, pt, type='h', col="blue", xaxt=c(0,8))
+plot(1:26, pt, type='h', col="blue", xlim=c(0,8))
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8))
+plot(1:26, pt, type='h', col="blue",col="red", ylim=c(0,8))
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="d")
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in Window")
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in each Window")
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="")
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=7)
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=5)
+load(file="/Users/federica/Dropbox/TotDrop/IRB_pHd/RWinHuman.Rdata")#load Rdata in windows
+rWinHuman$ADAT3
+#plot the runing window data.
+prw<-function(gene=NULL, geneName=NULL, threshold=80)
+{
+#  print(geneName)
+#  if(length(geneName) != 0)
+#  {
+gene<-eval(parse(text=paste(c("rWinHuman$",geneName),collapse="")))
+#  }
+plot(1:(length(gene)), gene , type='l', ylim=c(0,80))#, xlim=c(0,10000))
+# lines(1:length(gene), gene)
+#  par(new=T)
+}######################################
+#dev.off()
+prw(geneName="ADAT3")
+prw(gene=rWinHuman$MUC5B)
+prw(gene="rWinHuman$MUC5B")
+prw(rWinHuman$MUC5B)
+prw<-function(gene=NULL, geneName=NULL, threshold=80)
+{
+#  print(geneName)
+if(!is.null(geneName))
+{
+gene<-eval(parse(text=paste(c("rWinHuman$",geneName),collapse="")))
+}
+plot(1:(length(gene)), gene , type='l', ylim=c(0,80))#, xlim=c(0,10000))
+# lines(1:length(gene), gene)
+#  par(new=T)
+}######################################
+#dev.off()
+prw(gene=rWinHuman$MUC7)
+prw(geneName="MUC1")
+prw(gene=rWinHuman$MUC5B)
+rWinHuman$MUC5B->w
+w
+w>10
+w>62
+w[w>62]
+w[w>62]->area
+sum(area)
+length(area)
+sum(w>62)
+rank<-function(gene, thr=62)
+{
+gene[gene>thr]->>area
+return(c(sum(area), length(area)))
+}
+rank(w, 62)
+rank(w, 70)
+rank(w, 75)
+rank(w, 74)
+rank(rWinHuman$MUC5B, 74)
+sample(rWinHuman, 100)
+sample(rWinHuman, 100)->prova
+sapply(prova, rank, 62)
+sapply(rWinHuman, rank, 62)->rankHuman62
+rankHuman62
+sapply(prova, rank, 62)->rankHuman62
+sapply(prova, rank, 62)
+sapply(prova, rank, 42)
+sapply(prova, rank, 52)
+sapply(rWinHuman, rank, 52)
+sapply(prova, rank, 52)->ranks
+ranks
+ranks
+ranks[1]
+ranks[2]
+ranks[5]
+sapply(prova, rank, 52)
+sample(rWinHuman, 10)->prova
+sapply(prova, rank, 62)
+sapply(prova, rank, 42)
+sapply(prova, rank, 52)
+sapply(prova, rank, 52)->ranks
+rank(w,62)
+rank(w,72)
+prova$APP
+sapply(prova, rank, 52)
+sapply(prova, rank, 52)->ranks
+colnames(ranks)
+class(ranks)
+ranks[,"APP"]
+ranks
+sapply(prova, rank, 62,simplify=F)->ranks
+ranks
+sapply(prova, rank, 62,simplify=T)->ranks
+ranks
+as.data.frame(ranks)->r2
+r2
+sapply(rWinHuman, rank, 62)->rankHuman62
+rankHuman62
+dim(rankHuman62)
+rankHuman62[,"ADAT2"]
+sapply(rWinHuman, rank, 62,     simplify=F)->rankHuman62
+rankHuman62$MUC7
+sapply(rWinHuman, rank, 62,     simplify=T)->rankHuman62
+rankHuman62[,order(rankHuman62[1,])]->r62sum
+r62sum[,1:10]
+rankHuman62[,order(rankHuman62[1,],decreasing=T)]->r62sum
+r62sum[,1:10]
+rankHuman62[,order(rankHuman62[2,],decreasing=T)]->r62len
+r62len[,1:10]
+r62sum[,1:20]
+r62len[,1:20]
+plot(t(rankHuman62))
+plot(t(rankHuman62), xlim=c(0:3e4))
+plot(t(rankHuman62), xlim=c(0:3e+4))
+plot(t(rankHuman62), xlim=c(0,3e4))
+plot(t(rankHuman62), xlim=c(0,3e3))
+plot(t(rankHuman62), xlim=c(0,3e3),    ylim=c(0,100))
+dim(rWinHuman)
+length(attributes(rWinHuman))
+attributes(rWinHuman)
+length(rWinHuman)
+length(rankHuman62)
+dim(rankHuman62)
+length(r62sum)
+order(rankHuman62[1,],decreasing=T)->o
+lenght(o)
+length(o)
+rankHuman62[,o[1]]
+rankHuman62[,o]->oo
+length(oo)
+dim(oo)
+oo[1]
+oo[,1]
+oo[,1_10]
+oo[,1:10]
+oo[,1:20]
+write.table()
+oo[,1:20]->m
+write.table(m,file="/Users/federica/Dropbox/TotDrop/IRB_pHd/genneCondRW.txt")
+write.table(t(m),file="/Users/federica/Dropbox/TotDrop/IRB_pHd/genneCondRW.txt")
+oo[,1:200]->m
+write.table(t(m),file="/Users/federica/Dropbox/TotDrop/IRB_pHd/genneCondRW.txt")
+order(rankHuman62[2,],decreasing=T)->o2
+rankHuman62[,o2]->o2o
+write.table(o2o[1:200],file="/Users/federica/Dropbox/TotDrop/IRB_pHd/genneCondRW.txt")
+prw("MUC17")
+prw(geneName="MUC17")
+gene
+rWinHuman$MUC17->gene
+length(gene)
+plot(1:(length(gene)), gene , type='l', ylim=c(0,80), col=c(rep(1,(length(gene)/2)), rep(5, (length(gene)/2))))#, xlim=c(0,10000))
+plot(1:(length(gene)), gene , type='l', ylim=c(0,80), col=c(rep("red",(length(gene)/2)), rep("blue", (length(gene)/2))))#, xlim=c(0,10000))
+length(gene)/2
+?rep
+plot(1:(length(gene)), gene , type='l', ylim=c(0,80), col=c(rep("red",2000), rep("blue", 2000)))#, xlim=c(0,10000))
+plot(1:(length(gene)), gene , type='l', ylim=c(0,80), col=c(rep("red",10), rep("blue", 2000)))#, xlim=c(0,10000))
+plot(1:(length(gene)), gene , type='h', ylim=c(0,80), col=c(rep("red",10), rep("blue", 2000)))#, xlim=c(0,10000))
+plot(points(1:(length(gene)), gene ,  ylim=c(0,80), col=c(rep("red",10), rep("blue", 2000))))#, xlim=c(0,10000))
+plot(points(1:(length(gene)), gene ,  ylim=c(0,80), col=c(rep("red",10), rep("blue", 2000)), xlim=c(0,5000)))# lines(1:length(gene), gene)
+plot(1:(length(gene)), gene ,  ylim=c(0,80),  xlim=c(0,length(gene)))# lines(1:length(gene), gene)
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)))# lines(1:length(gene), gene)
+gene
+gene>62
+gene>62->v
+gsub(pattern="TRUE", replacement="RED", x=v)
+gsub(pattern="FALSE", replacement="blue", x=v)
+gsub(pattern="FALSE", replacement="blue", x=v)->cool
+cool
+gsub(pattern="TRUE", replacement="RED", x=v)->cool
+gsub(pattern="FALSE", replacement="blue", x=cool)->cool
+cool
+gsub(pattern="RED", replacement="red", x=cool)->cool
+cool
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)# lines(1:length(gene), gene)
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)# lines(1:length(gene), gene)
+cool
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col="red")
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col=c("red","blue")
+)
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col=c("red","blue"))
+plot(1:(length(gene)), gene , type="b", ylim=c(0,80),  xlim=c(0,length(gene)), col=c("red","blue"))
+plot(1:(length(gene)), gene , type="b", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="h", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="ld", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="d", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=1)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=0.5)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, lwd=1)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, lwd=0.5)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, lwd=0.1)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, lwd=2)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, lwd=7)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, lwd=1)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, ps=1)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, ps=0.5)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, ps=2)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, ps=1)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='.')
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=16)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20)
+plot(1:(length(gene)), gene , type="o", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20)
+plot(1:(length(gene)), gene , type="o", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='.')
+plot(1:(length(gene)), gene , type="o", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='21')
+plot(1:(length(gene)), gene , type="o", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='20')
+plot(1:(length(gene)), gene , type="l", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='20')
+plot(1:(length(gene)), gene , type="d", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='20')
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='20')
+plot(1:(length(gene)), gene , type="s", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='20')
+plot(1:(length(gene)), gene , type="d", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='20')
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='20')
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch='.')
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=10)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=21)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20)
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20)
+gene
+attributes(((((gene)))))
+attributes(gene)
+prw<-function(gene=NULL, geneName=NULL, threshold=80)
+{
+#  print(geneName)
+if(!is.null(geneName))
+{
+gene<-eval(parse(text=paste(c("rWinHuman$",geneName),collapse="")))
+}
+gene>62->v
+gsub(pattern="TRUE", replacement="RED", x=v)->cool
+gsub(pattern="FALSE", replacement="blue", x=cool)->cool
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20, main=gene)
+#col=c(rep("red",10), rep("blue", 2000))
+gsub(FALSE, "blue", x=)
+#  par(new=T)
+}########
+prw(geneName="MUC7")
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20, main=geneName)
+prw(geneName="MUC7")
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20, main="hello")
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20, main=geneName)
+prw(geneName=c("MUC7"))
+prw(gene=rWinHuman$MUC7
+)
+prw(gene=rWinHuman$MUC7)
+prw<-function(gene=NULL, geneName=NULL, threshold=80)
+{
+#  print(geneName)
+if(!is.null(geneName))
+{
+gene<-eval(parse(text=paste(c("rWinHuman$",geneName),collapse="")))
+}
+gene>62->v
+gsub(pattern="TRUE", replacement="RED", x=v)->cool
+gsub(pattern="FALSE", replacement="blue", x=cool)->cool
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20, main=geneName)
+#col=c(rep("red",10), rep("blue", 2000))
+#gsub(FALSE, "blue", x=)
+#  par(new=T)
+}#########
+prw(gene=rWinHuman$MUC7)
+gene=rWinHuman$MUC7
+gene
+attributes(gene)
+prw(geneName="MUC7")
+prw(geneName="MUC5b")
+prw(geneName="MUC5B")
+attributes(oo[1:20])
+attributes(oo[,1:20])
+attributes(oo[2,1:20])
+attributes(oo[2,1:20])->lis
+lis
+sapply(lis, prw)
+#######################################
+#plot the runing window data.
+prw<-function(gene=NULL, geneName=NULL, thr=62)
+{
+#  print(geneName)
+if(!is.null(geneName))
+{
+gene<-eval(parse(text=paste(c("rWinHuman$",geneName),collapse="")))
+}
+gene>thr->v
+gsub(pattern="TRUE", replacement="RED", x=v)->cool
+gsub(pattern="FALSE", replacement="blue", x=cool)->cool
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20, main=geneName)
+#col=c(rep("red",10), rep("blue", 2000))
+#gsub(FALSE, "blue", x=)
+#  par(new=T)
+}##############
+sapply(lis, prw, gene=NULL, the=62)
+sapply(lis, prw, gene=NULL, thr=62)
+sapply(lis, prw, gene=NULL, thr=62)
+lis
+par(new=F)
+sapply(lis, prw, gene=NULL, thr=62)
+sapply(lis, prw, thr=62)
+sapply(lis, prw, thr=62, gene=NULL)
+###############################
+#plot the runing window data.
+prw<-function(gene=NULL, geneName=NULL, thr=62)
+{
+#  print(geneName)
+if(!is.null(geneName))
+{
+gene<-eval(parse(text=paste(c("rWinHuman$",geneName),collapse="")))
+print(gene)
+}
+gene>thr->v
+gsub(pattern="TRUE", replacement="RED", x=v)->cool
+gsub(pattern="FALSE", replacement="blue", x=cool)->cool
+plot(1:(length(gene)), gene , type="p", ylim=c(0,80),  xlim=c(0,length(gene)), col=cool, pch=20, main=geneName)
+#col=c(rep("red",10), rep("blue", 2000))
+#gsub(FALSE, "blue", x=)
+#  par(new=T)
+}##########
+sapply(lis, prw, thr=62, gene=NULL)
+sapply(lis, prw, thr=62, gene=NULL)
+lest
+list
+lis
+lis
+lis[1]
+lis[[1]]
+length(lis)
+dim(lis)
+lis
+lis[1]
+lis[2]
+oo
+oo[,1:10]
+oo[,1:20]
+attributes(oo[,1:20])
+attributes(oo[,1:20])[2]
+attributes(oo[,1:20])[1]
+attributes(oo[,1:20])[2]
+attributes(oo[,1:20])[[1]]
+attributes(oo[,1:20])[[2]]
+attributes(oo[,1:20])
+attributes(oo[,1:20])->j
+j
+j$dim
+j$dimnames
+j$dimnames
+j$dimnames->k
+k
+k[[1]]
+k[[2]]
+k[[2]]->lis
+lis
+lis[1]
+lis[2]
+sapply(lis, prw, thr=62, gene=NULL)
+lis
+rWinHuman$MUC4
+rWinHuman$MUC4>62
+rankHuman62[,"MUC4"]
+oo[,0:10]
+rWinHuman$MUC4
+rWinHuman$MUC4
+rWinHuman$MUC4
+lis
+pt
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=5)
+pt=c(2,2,2,2,2,2,3,4,5,6,5,6,6,5,5,5,4,3,3,3,3,3,2,1,1,1)
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=5)
+plot(1:26, pt, type='h', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch='.')
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=10)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=20)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=21)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=1)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=2)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=3)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=4)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=5)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=6)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=7)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=8)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=9)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=10)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=11)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=12)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=12, lty=1)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=12, lty=3)
+plot(1:26, pt, type='l', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=12, lty=3)
+plot(1:26, pt, type='l', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=12, lty=1)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=12)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=16)
+plot(1:26, pt, type='p', col="blue", ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=16, main="Running Windows")
+pt>4
+pt>4->a
+gsub(pattern="FALSE", replacement="blue",x=a)->cool
+gsub(pattern="TRUE", replacement="red",x=cool)->cool
+cool
+plot(1:26, pt, type='p', col=cool, ylim=c(0,8), ylab="a(t) in each Window", xlab="", lwd=3, pch=16, main="Running Windows")
+unlist(rWinHuman)->uh
+mean(uh)
+mean(uh)/80
+sd(uh)
+sd(uh/80)
+savehistory(file="/Users/federica/Dropbox/TotDrop/IRB_pHd/histLast")

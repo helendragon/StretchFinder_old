@@ -1,0 +1,6 @@
+pyinstaller
+Cython
+numpy
+matplotlib
+requests
+pandas
