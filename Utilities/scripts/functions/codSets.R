@@ -1,0 +1,28 @@
+#some Rowsets (codon sets) of interest
+#dtCodons<-c(40,38,37,24,22,21,8,6,5,48,46,45,56,54,53,28,26,25,32,30,29,16,14,13)
+#atCodons<-c(40,38,37,39,24,22,21,23,8,6,5,7,48,46,45,47,56,54,53,55,12,10,28,26,25,27,11,9,32,30,29,31,63,61,16,14,13)
+atAla<-c(37,38,39,40)
+atPro<-c(21,22,23,24)
+atThr<-c(5,6,7,8)
+atVal<-c(45,46,47,48)
+atSer<-c(53,54,55,56,10,12)
+atArg<-c(25,26,27,28,9,11)
+atLeu<-c(29,30,31,32,61,63)
+atIle<-c(13,14,16)
+
+atCodons<-c(atThr,atIle,atPro,atArg,atLeu,atAla,atVal,atSer)
+aTAPS<-c(atThr, atPro, atAla, atSer)
+RAtCod<-sample(1:64, 37)
+
+dtAla<-c(37,38,40)
+dtPro<-c(21,22,24)
+dtThr<-c(5,6,8)
+dtVal<-c(45,46,48)
+dtSer<-c(53,54,56)
+dtArg<-c(25,26,28)
+dtLeu<-c(29,30,32)
+dtIle<-c(13,14,16)
+
+dtCodons<-c(dtThr,dtIle,dtPro,dtArg,dtLeu,dtAla,dtVal,dtSer)
+dTAPS<-c(dtThr, dtPro, dtAla, dtSer)
+RDtCod<-sample(RAtCod, 24)
